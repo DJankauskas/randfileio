@@ -36,6 +36,7 @@ int main() {
         printf("Write failed: %s.\n", strerror(errno));
         exit(1);
     }
+    close(write_fd);
 
     printf("Reading from file:\n");
     int read_fd = open("./randnums", O_RDONLY);
