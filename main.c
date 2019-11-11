@@ -28,6 +28,7 @@ int main() {
     printf("Reading random numbers:\n");
     read(rand_fd, random_numbers, sizeof(random_numbers));
     print_random_numbers(random_numbers, 10);
+    close(rand_fd);
 
     printf("\nWriting to file:\n");
     int write_fd = open("./randnums", O_CREAT | O_WRONLY, 0666);
@@ -48,6 +49,7 @@ int main() {
     }
     printf("\nVerification written numbers are the same:\n");
     print_random_numbers(read_numbers, 10);
+    close(read_fd);
 
     return 0;
 }
